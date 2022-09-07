@@ -1,17 +1,24 @@
 <template>
-  <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
-  </div>
+  
+  <SideBar/>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
-
+import SideBar from '../src/components/sideBar.vue';
+import axios from "axios";
+ 
 export default {
   name: 'App',
   components: {
-    HelloWorld
+    SideBar,
+  }
+  created() {
+    axios
+        .get('https://flynn.boolean.careers/exercises/api/array/music')
+        .then(res) => {
+          console.log(res);
+        }
+
   }
 }
 </script>

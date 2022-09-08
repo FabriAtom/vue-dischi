@@ -1,24 +1,28 @@
 <template>
-  
-  <SideBar/>
+  <div>
+    <SideBar/>
+    <ListCharactersComponent/>
+  </div>
 </template>
 
 <script>
-import SideBar from '../src/components/sideBar.vue';
+import SideBar from './components/SideBar.vue';
+import ListCharactersComponent from './components/ListCharactersComponent.vue';
+
 import axios from "axios";
  
 export default {
   name: 'App',
   components: {
     SideBar,
-  }
+    ListCharactersComponent,
+  },
   created() {
     axios
         .get('https://flynn.boolean.careers/exercises/api/array/music')
-        .then(res) => {
+        .then((res) => {
           console.log(res);
-        }
-
+        });
   }
 }
 </script>
